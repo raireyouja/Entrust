@@ -73,3 +73,18 @@ Percentage of the requests served within a certain time (ms)
  100%     37 (longest request)
 
 ```
+we got 0 failed request with a speed of 0.023 ms/request. By incresing the coccurent requests to 500 we still got the same results. starting from 1000 concurrent request we start having failed requests but with no big difference in time per requests:
+```
+Concurrency Level:      1000
+Time taken for tests:   0.574 seconds
+Complete requests:      20000
+Failed requests:        320
+   (Connect: 0, Receive: 0, Length: 160, Exceptions: 160)
+Keep-Alive requests:    19815
+Total transferred:      17042435 bytes
+HTML transferred:       12142080 bytes
+Requests per second:    34823.43 [#/sec] (mean)
+Time per request:       28.716 [ms] (mean)
+Time per request:       0.029 [ms] (mean, across all concurrent requests)
+Transfer rate:          28978.32 [Kbytes/sec] received
+```
