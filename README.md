@@ -73,7 +73,7 @@ Percentage of the requests served within a certain time (ms)
  100%     37 (longest request)
 
 ```
-we got 0 failed request with a speed of 0.023 ms/request. By incresing the coccurent requests to 500 we still got the same results. starting from 1000 concurrent request we start having failed requests but with no big difference in time per requests:
+we got 0 failed request with a speed of 0.023 ms/request. By incresing the Concurrency Level to 500 we still got the same results. starting from 1000 concurrent request we start having failed requests but with no big difference in time per requests:
 ```
 Concurrency Level:      1000
 Time taken for tests:   0.574 seconds
@@ -103,7 +103,7 @@ Time per request:       27.514 [ms] (mean)
 Time per request:       0.027 [ms] (mean, across all concurrent requests)
 Transfer rate:          30800.24 [Kbytes/sec] received
 ```
-using more than 1020 in concurrency level the website fails and we got the following messages that indicates that we have manz open files:
+using more than 1020 in concurrency level the website fails and we got the following messages that indicates that we have many open files:
 ```
 This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
