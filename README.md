@@ -10,7 +10,7 @@ This basic command isn’t particularly useful without any additional options, s
     -n (number): used to specify the number of requests ab should send to apache 
     -k : Use HTTP KeepAlive feature
     -c (concurrent): used to specify the number of simultaneous requests for ab to make
-After executing the following command using the three flags :
+After executing the following command, using the three flags, with which we are hitting the website with 350 simultaneous connections until 20 thousand requests are met. It will be done using the keep alive header:
 ```
 ab -k -c 350 -n 20000 http://127.0.0.1/
 ```
