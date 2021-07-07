@@ -88,3 +88,28 @@ Time per request:       28.716 [ms] (mean)
 Time per request:       0.029 [ms] (mean, across all concurrent requests)
 Transfer rate:          28978.32 [Kbytes/sec] received
 ```
+The maximum level of concurrency using 20000 requests is 1020:
+```
+Concurrency Level:      1020
+Time taken for tests:   0.539 seconds
+Complete requests:      20000
+Failed requests:        384
+   (Connect: 0, Receive: 0, Length: 192, Exceptions: 192)
+Keep-Alive requests:    19786
+Total transferred:      17014962 bytes
+HTML transferred:       12122496 bytes
+Requests per second:    37072.60 [#/sec] (mean)
+Time per request:       27.514 [ms] (mean)
+Time per request:       0.027 [ms] (mean, across all concurrent requests)
+Transfer rate:          30800.24 [Kbytes/sec] received
+```
+using more than 1020 in concurrency level the website fails and we got the following messages that indicates that we have manz open files:
+```
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+socket: Too many open files (24)
+```
+
