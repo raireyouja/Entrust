@@ -114,7 +114,49 @@ socket: Too many open files (24)
 ```
 2- Implementation of ab in Go (goab) including the -n, -c and -k parameters:
 it is the folder under the name: ab-Golang
+using the same parameters used with ab, we got the following results:
+```
+$ go run go-ab.go -c 350 -n 20000 -k  http://127.0.0.1/
+```
+```
+Benchmarking 127.0.0.1 (be patient).....done
 
+
+Server Software:        nginx/1.18.0 (Ubuntu)
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /
+Document Length:        612 bytes
+
+Concurrency Level:      350
+Time taken for tests:   3.901 seconds
+Complete requests:      20000
+Failed requests:        0
+Total transferred:      16920000 bytes
+Requests per second:    5126.93 [#/sec] (mean)
+Time per request:       68.267 [ms] (mean)
+Time per request:       0.195 [ms] (mean, across all concurrent requests)
+Transfer rate:          4235.72 [Kbytes/sec] received
+
+Connection Times (ms)
+                     min  mean[+/-sd] median   max
+Connect:               0    1   7.8      0     106
+Processing:            1   11   9.5      8      45
+Total:                 1   20  21.4     14     201
+
+Percentage of the requests served within a certain time (ms)
+  50%     14
+  66%     24
+  75%     30
+  80%     34
+  90%     46
+  95%     56
+  98%     75
+  99%    101
+ 100%    201 (longest request)
+
+```
 3- Implementation of an HTTP server in Go (httpserver) and Comparasion of results:
 the program is under the name : httpServer
 
