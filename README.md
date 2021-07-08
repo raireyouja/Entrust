@@ -112,6 +112,11 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 Benchmarking 127.0.0.1 (be patient)
 socket: Too many open files (24)
 ```
-2- Implement ab in Go (goab) including the -n, -c and -k parameters:
+2- Implementation of ab in Go (goab) including the -n, -c and -k parameters:
+it is the folder under the name: ab-Golang
+
+3- Implementation of an HTTP server in Go (httpserver) and Comparasion of results:
+the program is under the name : httpServer
+
 
 
