@@ -189,6 +189,61 @@ Percentage of the requests served within a certain time (ms)
 
 3- Implementation of an HTTP server in Go (httpserver) and Comparasion of results:
 the program is under the name : httpServer
+Load testing our Go http server using the following parameters:
+```
+ab -c 1010 -n 20000 -k  http://localhost:8080/world
+```
+we got the following results:
+```
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
 
+Document Path:          /world
+Document Length:        13 bytes
 
+Concurrency Level:      1010
+Time taken for tests:   0.550 seconds
+Complete requests:      20000
+Failed requests:        0
+Keep-Alive requests:    20000
+Total transferred:      3080000 bytes
+HTML transferred:       260000 bytes
+Requests per second:    36356.30 [#/sec] (mean)
+Time per request:       27.781 [ms] (mean)
+Time per request:       0.028 [ms] (mean, across all concurrent requests)
+Transfer rate:          5467.65 [Kbytes/sec] received
 
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    4  16.0      0      83
+Processing:     0   22  11.3     20      78
+Waiting:        0   22  11.2     20      64
+Total:          0   26  21.9     20     124
+
+Percentage of the requests served within a certain time (ms)
+  50%     20
+  66%     25
+  75%     30
+  80%     32
+  90%     44
+  95%     83
+  98%    114
+  99%    115
+ 100%    124 (longest request)
+```
+We got 0 failed request with a speed of 0.028 ms/request, it returned requests at a lower rate of 36356.30 requests per second and the slowest request took 124ms. By incresing the Concurrency Level to 1020 or more the server fails and we got a timeout error message:
+```
+Benchmarking localhost (be patient)
+Completed 2000 requests
+Completed 4000 requests
+Completed 6000 requests
+Completed 8000 requests
+Completed 10000 requests
+Completed 12000 requests
+Completed 14000 requests
+Completed 16000 requests
+Completed 18000 requests
+apr_pollset_poll: The timeout specified has expired (70007)
+Total of 19999 requests completed
+```
