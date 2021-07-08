@@ -73,7 +73,7 @@ Percentage of the requests served within a certain time (ms)
  100%     37 (longest request)
 
 ```
-we got 0 failed request with a speed of 0.023 ms/request, it returned requests at a rate of 44056.65 requests per second and the slowest request took only 37ms. By incresing the Concurrency Level to 500 we still got the same results, starting from 1000 concurrent request we start having failed requests but with no big difference in time per requests, the 50% of requests was served in 16 ms at a rate of 34823.43 requests/sec:
+we got 0 failed request with a speed of 0.023 ms/request, it returned requests at a rate of 44056.65 requests per second and the slowest request took only 37ms. By increasing the Concurrency Level to 500 we still got the same results, starting from 1000 concurrent request we start having failed requests but with no big difference in time per requests, the 50% of requests was served in 16 ms at a rate of 34823.43 requests/sec:
 ```
 Concurrency Level:      1000
 Time taken for tests:   0.574 seconds
@@ -157,7 +157,7 @@ Percentage of the requests served within a certain time (ms)
  100%    201 (longest request)
 
 ```
-We got 0 failed request like before but with a speed of 0.195 ms/request, it returned requests at a lower rate of 5126.93 requests per second. The fastest request took 1 ms meanwhile the slowest took only 201ms which is much higher than when we used ab. By incresing the Concurrency Level to 500 we still got the same results. Unlike the ab results, starting from 1000 concurrent request until reaching the maximum of files we can have open which is at 1020 concurrent level we got 0 failed requests, the 50% of requests was served in 48 ms at a rate of 5356.95 requests/sec:
+We got 0 failed request like before but with a speed of 0.195 ms/request, it returned requests at a lower rate of 5126.93 requests per second. The fastest request took 1 ms meanwhile the slowest took only 201ms which is much higher than when we used ab. By increasing the Concurrency Level to 500 we still got the same results. Unlike the ab results, starting from 1000 concurrent request until reaching the maximum of files we can have open which is at 1020 concurrent level we got 0 failed requests, the 50% of requests was served in 48 ms at a rate of 5356.95 requests/sec:
 ```
 Concurrency Level:      1020
 Time taken for tests:   3.733 seconds
@@ -187,7 +187,7 @@ Percentage of the requests served within a certain time (ms)
  100%    453 (longest request)
 ```
 
-3- Implementation of an HTTP server in Go (httpserver) and Comparasion of results:
+3- Implementation of an HTTP server in Go (httpserver) and comparison of results:
 the program is under the name : httpServer
 Load testing our Go http server using the following parameters:
 ```
@@ -232,7 +232,7 @@ Percentage of the requests served within a certain time (ms)
   99%    115
  100%    124 (longest request)
 ```
-We got 0 failed request with a speed of 0.028 ms/request, it returned requests at a lower rate of 36356.30 requests per second and the slowest request took 124ms. By incresing the Concurrency Level to 1020 or more the server fails and we got a timeout error message:
+We got 0 failed request with a speed of 0.028 ms/request, it returned requests at a lower rate of 36356.30 requests per second and the slowest request took 124ms. By increasing the Concurrency Level to 1020 or more the server fails and we got a timeout error message:
 ```
 Benchmarking localhost (be patient)
 Completed 2000 requests
