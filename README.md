@@ -157,6 +157,36 @@ Percentage of the requests served within a certain time (ms)
  100%    201 (longest request)
 
 ```
+We got 0 failed request like before but with a speed of 0.195 ms/request, it returned requests at a lower rate of 5126.93 requests per second. The fastest request took 1 ms meanwhile the slowest took only 201ms which is much higher than when we used ab. By incresing the Concurrency Level to 500 we still got the same results. Unlike the ab results, starting from 1000 concurrent request until reaching the maximum of files we can have open which is at 1020 concurrent level we got 0 failed requests, the 50% of requests was served in 48 ms at a rate of 5356.95 requests/sec:
+```
+Concurrency Level:      1020
+Time taken for tests:   3.733 seconds
+Complete requests:      20000
+Failed requests:        0
+Total transferred:      16920000 bytes
+Requests per second:    5356.95 [#/sec] (mean)
+Time per request:       190.407 [ms] (mean)
+Time per request:       0.187 [ms] (mean, across all concurrent requests)
+Transfer rate:          4425.76 [Kbytes/sec] received
+
+Connection Times (ms)
+                     min  mean[+/-sd] median   max
+Connect:               0    3  16.2      0     323
+Processing:            1   29  18.6     29     147
+Total:                 1   64  60.9     48     453
+
+Percentage of the requests served within a certain time (ms)
+  50%     48
+  66%     72
+  75%     94
+  80%    104
+  90%    136
+  95%    170
+  98%    241
+  99%    308
+ 100%    453 (longest request)
+```
+
 3- Implementation of an HTTP server in Go (httpserver) and Comparasion of results:
 the program is under the name : httpServer
 
