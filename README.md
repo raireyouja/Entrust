@@ -116,7 +116,7 @@ socket: Too many open files (24)
 it is the folder under the name: ab-Golang
 using the same parameters used with ab, we got the following results:
 ```
-$ go run go-ab.go -c 350 -n 20000 -k  http://127.0.0.1/
+$ go run ApacheBench.go -c 350 -n 20000 -k  http://127.0.0.1/
 ```
 ```
 Benchmarking 127.0.0.1 (be patient).....done
